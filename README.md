@@ -2,12 +2,19 @@
 
 Web browser automation for scraping HTML from AliExpress Brasil using [rebrowser-puppeteer](https://www.npmjs.com/package/rebrowser-puppeteer) with anti-detection.
 
+## Prerequisites
+
+- Node.js >= 18
+
 ## Setup
 
 ```bash
 cp config.example.json config.json
 npm install
+npx puppeteer browsers install chrome
 ```
+
+The last command downloads the Chrome binary required by Puppeteer. If you skip it, you will see an error like `Could not find Chrome (ver. x.x.x)`.
 
 Edit `config.json` with your settings.
 
