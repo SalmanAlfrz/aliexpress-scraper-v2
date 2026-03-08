@@ -1,7 +1,7 @@
 {
-  "server": {
-    "port": 3001
-  },
+  "urls": [
+    "https://pt.aliexpress.com/item/1005007774544234.html"
+  ],
   "browser": {
     "headless": false,
     "viewport": {
