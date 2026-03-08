@@ -1,3 +1,4 @@
+import { mkdir } from 'fs/promises';
 import { randomDelay, timestamp, sanitizeFilename } from './utils.js';
 
 const CAPTCHA_TEXT_INDICATORS = [
@@ -74,8 +75,10 @@ export async function scrapeHTML(page, url, config) {
 
   await dismissPopups(page);
 
-  await page.screenshot({ path: `output/${sanitizeFilename(url)}_${Date.now()}.png` });
-  console.log(`Screenshot saved: output/${sanitizeFilename(url)}_${Date.now()}.png`);
+  const outputDir = config.output?.directory || 'output';
+  await mkdir(outputDir, { recursive: true });
+  await page.screenshot({ path: `${outputDir}/${sanitizeFilename(url)}_${Date.now()}.png` });
+  console.log(`Screenshot saved: ${outputDir}/${sanitizeFilename(url)}_${Date.now()}.png`);
 
   const html = await page.content();
 

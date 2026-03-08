@@ -28,7 +28,15 @@ export async function launchBrowser(config) {
     console.log(`Proxy enabled: ${proxy.host}:${proxy.port}`);
   }
 
+  const executablePath = config.browser?.chromePath || undefined;
+  if (executablePath) {
+    console.log(`Chrome path: ${executablePath}`);
+  } else {
+    console.log('Chrome path not found, using default');
+  }
+
   const browser = await puppeteer.launch({
+    executablePath,
     headless,
     args,
     defaultViewport: {

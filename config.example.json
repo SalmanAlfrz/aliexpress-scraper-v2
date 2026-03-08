@@ -14,7 +14,8 @@
       "port": 0,
       "username": "",
       "password": ""
-    }
+    },
+    "chromePath": ""
   },
   "scraper": {
     "timeout": 120000,

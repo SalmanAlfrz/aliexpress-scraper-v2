@@ -11,10 +11,33 @@ Web browser automation for scraping HTML from AliExpress Brasil using [rebrowser
 ```bash
 cp config.example.json config.json
 npm install
-npx puppeteer browsers install chrome
 ```
 
-The last command downloads the Chrome binary required by Puppeteer. If you skip it, you will see an error like `Could not find Chrome (ver. x.x.x)`.
+Chrome is automatically downloaded during `npm install` via the postinstall script.
+
+If you still see `Could not find Chrome (ver. x.x.x)`, either run manually:
+
+```bash
+npx @puppeteer/browsers install chrome@stable
+```
+
+Or set `browser.chromePath` in `config.json` to point to your existing Chrome installation:
+
+```json
+{
+  "browser": {
+    "chromePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  }
+}
+```
+
+Common Chrome paths:
+
+| OS | Path |
+|---|---|
+| macOS | `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome` |
+| Linux | `/usr/bin/google-chrome` |
+| Windows | `C:\Program Files\Google\Chrome\Application\chrome.exe` |
 
 Edit `config.json` with your settings.
 
@@ -81,6 +104,7 @@ Reads URLs from `config.json` and scrapes them sequentially.
 |---|---|
 | `server.port` | API server port (default `3001`) |
 | `browser.headless` | `false` (default, safer from detection) or `true` |
+| `browser.chromePath` | Path to Chrome executable. Leave empty to use auto-downloaded Chrome. |
 | `browser.viewport` | Browser resolution (width x height) |
 | `browser.proxy` | Default proxy settings (used when request has no proxy) |
 | `scraper.timeout` | Navigation timeout in ms |
