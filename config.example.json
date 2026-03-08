@@ -1,0 +1,32 @@
+{
+  "server": {
+    "port": 3001
+  },
+  "browser": {
+    "headless": false,
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "proxy": {
+      "enabled": false,
+      "host": "",
+      "port": 0,
+      "username": "",
+      "password": ""
+    }
+  },
+  "scraper": {
+    "timeout": 60000,
+    "navigationWaitUntil": "domcontentloaded",
+    "delayBetweenPages": {
+      "min": 3000,
+      "max": 7000
+    },
+    "maxRetries": 3
+  },
+  "output": {
+    "directory": "output",
+    "prettyPrint": false
+  }
+}

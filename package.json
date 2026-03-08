@@ -1,0 +1,20 @@
+{
+  "name": "aliexpress-scraper",
+  "version": "1.0.0",
+  "description": "AliExpress Brasil HTML scraper using rebrowser-puppeteer with anti-detection",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "aliexpress",
+    "scraper",
+    "puppeteer",
+    "rebrowser"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "rebrowser-puppeteer": "^24.8.1"
+  }
+}
