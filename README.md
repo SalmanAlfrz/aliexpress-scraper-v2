@@ -15,23 +15,29 @@ npm install
 
 Chrome is automatically downloaded during `npm install` via the postinstall script.
 
-If you still see `Could not find Chrome (ver. x.x.x)`, either run manually:
+**Recommended:** Use the Chrome binary provided by `@puppeteer/browsers` (installed automatically). If `npm install` did not download it, run manually:
 
 ```bash
 npx @puppeteer/browsers install chrome@stable
 ```
 
-Or set `browser.chromePath` in `config.json` to point to your existing Chrome installation:
+This will output the install path, for example:
+
+```
+chrome@stable /Users/you/.cache/puppeteer/chrome/mac_arm-xxx/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing
+```
+
+Copy that path and set it in `config.json`:
 
 ```json
 {
   "browser": {
-    "chromePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    "chromePath": "/Users/you/.cache/puppeteer/chrome/mac_arm-xxx/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
   }
 }
 ```
 
-Common Chrome paths:
+Alternatively, you can use your system Chrome. Common paths:
 
 | OS | Path |
 |---|---|
