@@ -17,8 +17,8 @@
     }
   },
   "scraper": {
-    "timeout": 60000,
-    "navigationWaitUntil": "domcontentloaded",
+    "timeout": 120000,
+    "navigationWaitUntil": "load",
     "delayBetweenPages": {
       "min": 3000,
       "max": 7000
